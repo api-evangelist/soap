@@ -5,4 +5,28 @@
   url: http://nordicapis.com/?p=6549
   domain: nordicapis.com
   image: ""
+- curated_id: FZ/2GLZp/a8FriFm6BqxYgMelBuYPP5oD17BctyF8kM=_15e2249944e:7a4ab3:ddacb472
+  item_date: "2017-08-26 11:17:51"
+  title: Difference Between API and Web Service
+  url: https://medium.com/p/73c873573c9d
+  domain: medium.com
+  image: ""
+- curated_id: 4b5tCw5GvlXtruVS/z16h27znplNFRBntlQNEyTCvpo=_15e7c213224:d993a8:4cab23bc
+  item_date: "2017-09-13 09:00:27"
+  title: 'Know how RESTful your API is: An Overview of the Richardson Maturity Model'
+  url: https://developers.redhat.com/blog/?p=438641
+  domain: developers.redhat.com
+  image: ""
+- curated_id: YTnLa9RikSx0m+EartZjHJqRUrEZThXUD4tfxe9s8UQ=_1606b8f74b4:14fe678:3c0bb656
+  item_date: "2017-12-18 10:32:00"
+  title: A Response to REST is the new SOAP
+  url: https://philsturgeon.uk/api/2017/12/18/rest-confusion-explained/
+  domain: philsturgeon.uk
+  image: ""
+- curated_id: FZ/2GLZp/a8FriFm6BqxYgMelBuYPP5oD17BctyF8kM=_1607854f3e2:8de0a5:b64595cf
+  item_date: "2017-12-21 00:46:19"
+  title: REST is the new SOAP, and GraphQL is here to save us
+  url: https://medium.com/p/f7c4fea7232d
+  domain: medium.com
+  image: ""
 ...
