@@ -1,0 +1,80 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "soap": "http://www.w3.org/2003/05/soap-envelope/",
+    "wsdl": "http://www.w3.org/ns/wsdl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "Envelope": {
+      "@id": "soap:Envelope",
+      "@type": "@id",
+      "rdfs:comment": "The root element of a SOAP message containing header and body."
+    },
+    "Header": {
+      "@id": "soap:Header",
+      "@type": "@id",
+      "rdfs:comment": "Optional element containing metadata and processing instructions."
+    },
+    "Body": {
+      "@id": "soap:Body",
+      "@type": "@id",
+      "rdfs:comment": "Required element containing the main payload of the SOAP message."
+    },
+    "Fault": {
+      "@id": "soap:Fault",
+      "@type": "@id",
+      "rdfs:comment": "Element indicating an error occurred during SOAP message processing."
+    },
+    "Code": {
+      "@id": "soap:Code",
+      "rdfs:comment": "Fault code providing algorithmic identification of the error."
+    },
+    "Reason": {
+      "@id": "soap:Reason",
+      "rdfs:comment": "Human-readable explanation of a SOAP fault."
+    },
+    "Node": {
+      "@id": "soap:Node",
+      "@type": "@id",
+      "rdfs:comment": "URI of the SOAP node that generated a fault."
+    },
+    "Role": {
+      "@id": "soap:Role",
+      "@type": "@id",
+      "rdfs:comment": "URI identifying the role a SOAP node was operating in."
+    },
+    "Detail": {
+      "@id": "soap:Detail",
+      "rdfs:comment": "Application-specific error information in a fault."
+    },
+    "mustUnderstand": {
+      "@id": "soap:mustUnderstand",
+      "@type": "xsd:boolean",
+      "rdfs:comment": "Indicates whether a header block must be processed by the target node."
+    },
+    "encodingStyle": {
+      "@id": "soap:encodingStyle",
+      "@type": "@id",
+      "rdfs:comment": "URI identifying the serialization rules for the SOAP message."
+    },
+    "role": {
+      "@id": "soap:role",
+      "@type": "@id",
+      "rdfs:comment": "The SOAP node role targeted by a header block."
+    },
+    "relay": {
+      "@id": "soap:relay",
+      "@type": "xsd:boolean",
+      "rdfs:comment": "Indicates whether a header block should be relayed if not processed."
+    },
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "version": "schema:version",
+    "dateCreated": "schema:dateCreated",
+    "dateModified": "schema:dateModified"
+  }
+}

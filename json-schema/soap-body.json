@@ -1,0 +1,18 @@
+{
+  "$id": "soap-body.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOAP Body",
+  "description": "Schema describing the structure of a SOAP body element. The body contains the main payload of the SOAP message, either application-specific data for request and response messages or a fault element indicating an error.",
+  "type": "object",
+  "properties": {
+    "content": {
+      "type": "object",
+      "description": "The application-specific content of the SOAP message body, typically containing the request or response data for the web service operation.",
+      "additionalProperties": true
+    },
+    "Fault": {
+      "$ref": "soap-fault.json"
+    }
+  },
+  "additionalProperties": true
+}

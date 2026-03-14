@@ -1,0 +1,24 @@
+{
+  "$id": "soap-envelope.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOAP Envelope",
+  "description": "Schema describing the top-level structure of a SOAP message envelope as defined by the W3C SOAP 1.2 specification. The envelope is the root element of every SOAP message and contains an optional header and a required body.",
+  "type": "object",
+  "required": [
+    "Body"
+  ],
+  "properties": {
+    "encodingStyle": {
+      "type": "string",
+      "format": "uri",
+      "description": "A URI identifying the serialization rules used to encode the SOAP message parts."
+    },
+    "Header": {
+      "$ref": "soap-header.json"
+    },
+    "Body": {
+      "$ref": "soap-body.json"
+    }
+  },
+  "additionalProperties": false
+}

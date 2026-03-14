@@ -1,0 +1,17 @@
+{
+  "$id": "soap-header.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOAP Header",
+  "description": "Schema describing the structure of a SOAP header element. The header carries optional metadata such as authentication credentials, transaction identifiers, and routing information as individual header blocks.",
+  "type": "object",
+  "properties": {
+    "headerBlocks": {
+      "type": "array",
+      "description": "An array of header block entries, each representing an individual piece of metadata or processing instruction for SOAP intermediaries or the ultimate receiver.",
+      "items": {
+        "$ref": "soap-header-block.json"
+      }
+    }
+  },
+  "additionalProperties": true
+}

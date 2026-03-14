@@ -1,0 +1,103 @@
+{
+  "$id": "soap-fault.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOAP Fault",
+  "description": "Schema describing the structure of a SOAP fault element as defined by SOAP 1.2. A fault element appears in the SOAP body when an error occurs during message processing, providing structured error information to the sender.",
+  "type": "object",
+  "required": [
+    "Code",
+    "Reason"
+  ],
+  "properties": {
+    "Code": {
+      "type": "object",
+      "description": "A mandatory element providing an algorithmic mechanism for identifying the fault.",
+      "required": [
+        "Value"
+      ],
+      "properties": {
+        "Value": {
+          "type": "string",
+          "description": "A qualified name identifying the fault code. Standard values include VersionMismatch, MustUnderstand, DataEncodingUnknown, Sender, and Receiver.",
+          "enum": [
+            "VersionMismatch",
+            "MustUnderstand",
+            "DataEncodingUnknown",
+            "Sender",
+            "Receiver"
+          ]
+        },
+        "Subcode": {
+          "type": "object",
+          "description": "An optional sub-code providing more granular fault identification.",
+          "properties": {
+            "Value": {
+              "type": "string",
+              "description": "A qualified name identifying the sub-fault code."
+            },
+            "Subcode": {
+              "type": "object",
+              "description": "A further nested sub-code for additional fault classification.",
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "Value"
+          ]
+        }
+      }
+    },
+    "Reason": {
+      "type": "object",
+      "description": "A mandatory element providing human-readable explanations of the fault.",
+      "required": [
+        "Text"
+      ],
+      "properties": {
+        "Text": {
+          "type": "array",
+          "description": "One or more text descriptions of the fault, each qualified with an xml:lang attribute.",
+          "items": {
+            "type": "object",
+            "required": [
+              "lang",
+              "value"
+            ],
+            "properties": {
+              "lang": {
+                "type": "string",
+                "description": "The language code for this fault text, following RFC 3066.",
+                "examples": [
+                  "en",
+                  "fr",
+                  "de"
+                ]
+              },
+              "value": {
+                "type": "string",
+                "description": "The human-readable fault description in the specified language."
+              }
+            }
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "Node": {
+      "type": "string",
+      "format": "uri",
+      "description": "A URI identifying the SOAP node that generated the fault."
+    },
+    "Role": {
+      "type": "string",
+      "format": "uri",
+      "description": "A URI identifying the role the faulting node was operating in when the fault occurred."
+    },
+    "Detail": {
+      "type": "object",
+      "description": "An optional element carrying application-specific error information related to the SOAP body.",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,43 @@
+{
+  "$id": "soap-header-block.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOAP Header Block",
+  "description": "Schema describing an individual SOAP header block. Header blocks are discrete units of information within the SOAP header, each targeted at a specific SOAP node and optionally requiring processing by that node.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The local name of the header block element."
+    },
+    "namespace": {
+      "type": "string",
+      "format": "uri",
+      "description": "The XML namespace URI qualifying the header block element."
+    },
+    "role": {
+      "type": "string",
+      "format": "uri",
+      "description": "A URI identifying the SOAP node role that should process this header block. Standard roles include next, none, and ultimateReceiver.",
+      "examples": [
+        "http://www.w3.org/2003/05/soap-envelope/role/next",
+        "http://www.w3.org/2003/05/soap-envelope/role/none",
+        "http://www.w3.org/2003/05/soap-envelope/role/ultimateReceiver"
+      ]
+    },
+    "mustUnderstand": {
+      "type": "boolean",
+      "description": "Indicates whether the targeted SOAP node must process this header block. If true and the node cannot process it, a fault must be generated.",
+      "default": false
+    },
+    "relay": {
+      "type": "boolean",
+      "description": "Indicates whether this header block must be relayed to the next SOAP node if it is not processed. Only applicable to SOAP 1.2.",
+      "default": false
+    },
+    "value": {
+      "description": "The content of the header block, which may be a string, object, or other structured data.",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

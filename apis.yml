@@ -3,10 +3,31 @@ description: SOAP (Simple Object Access Protocol) is a messaging protocol for ex
   structured information in web services using XML over HTTP and other transport protocols.
   It provides built-in standards for security, transactions, and reliability, making
   it a common choice for enterprise integrations and legacy system communication.
-url: null
+url: https://www.w3.org/TR/soap12/
 tags:
 - SOAP
+- XML
+- Web Services
+- Messaging Protocol
 created: '2025'
 modified: '2025'
 apis: []
-common: []
+common:
+- type: json-schema
+  title: SOAP Envelope
+  url: json-schema/soap-envelope.json
+- type: json-schema
+  title: SOAP Header
+  url: json-schema/soap-header.json
+- type: json-schema
+  title: SOAP Header Block
+  url: json-schema/soap-header-block.json
+- type: json-schema
+  title: SOAP Body
+  url: json-schema/soap-body.json
+- type: json-schema
+  title: SOAP Fault
+  url: json-schema/soap-fault.json
+- type: json-ld-context
+  title: SOAP JSON-LD Context
+  url: json-ld/soap-context.jsonld
