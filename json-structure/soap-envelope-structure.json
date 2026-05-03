@@ -1,0 +1,103 @@
+{
+  "title": "SOAP Envelope Structure",
+  "description": "JSON Structure documentation for a SOAP 1.2 message envelope as defined by the W3C SOAP 1.2 specification",
+  "type": "object",
+  "namespace": "http://www.w3.org/2003/05/soap-envelope",
+  "fields": [
+    {
+      "name": "encodingStyle",
+      "type": "string (uri)",
+      "required": false,
+      "xmlAttribute": "soap:encodingStyle",
+      "description": "A URI identifying the serialization rules used to encode the SOAP message parts. May appear on any element in the SOAP message."
+    },
+    {
+      "name": "Header",
+      "type": "object",
+      "required": false,
+      "xmlElement": "soap:Header",
+      "description": "Optional container for metadata and processing instructions. Contains zero or more header blocks targeting specific SOAP nodes.",
+      "fields": [
+        {
+          "name": "header_blocks",
+          "type": "array of application-defined elements",
+          "required": false,
+          "description": "Header entries (header blocks) targeting specific SOAP nodes",
+          "attributes": {
+            "mustUnderstand": "boolean — if true, targeted node MUST process or fault",
+            "role": "uri — identifies the SOAP node role this block targets",
+            "relay": "boolean — if true, relay this block if not processed"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Body",
+      "type": "object",
+      "required": true,
+      "xmlElement": "soap:Body",
+      "description": "Required container for the main payload of the SOAP message, targeting the ultimate receiver.",
+      "fields": [
+        {
+          "name": "payload",
+          "type": "application-defined XML elements",
+          "required": false,
+          "description": "The actual message content — typically the operation request/response or a Fault element"
+        },
+        {
+          "name": "Fault",
+          "type": "object",
+          "required": false,
+          "xmlElement": "soap:Fault",
+          "description": "Error information returned when message processing fails",
+          "fields": [
+            {
+              "name": "Code",
+              "type": "object",
+              "required": true,
+              "description": "Fault code for algorithmic identification",
+              "fields": [
+                {
+                  "name": "Value",
+                  "type": "enum [VersionMismatch, MustUnderstand, DataEncodingUnknown, Sender, Receiver]",
+                  "required": true,
+                  "description": "Top-level fault code value"
+                },
+                {
+                  "name": "Subcode",
+                  "type": "object",
+                  "required": false,
+                  "description": "Application-specific fault code refinement"
+                }
+              ]
+            },
+            {
+              "name": "Reason",
+              "type": "object",
+              "required": true,
+              "description": "Human-readable explanation of the fault, with language attributes"
+            },
+            {
+              "name": "Node",
+              "type": "string (uri)",
+              "required": false,
+              "description": "URI identifying the SOAP node that generated the fault"
+            },
+            {
+              "name": "Role",
+              "type": "string (uri)",
+              "required": false,
+              "description": "URI identifying the role the faulting node was operating in"
+            },
+            {
+              "name": "Detail",
+              "type": "object",
+              "required": false,
+              "description": "Application-specific error detail information"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

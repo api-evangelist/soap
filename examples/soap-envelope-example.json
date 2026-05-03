@@ -1,0 +1,74 @@
+{
+  "title": "SOAP 1.2 Envelope Example",
+  "description": "Example SOAP 1.2 messages demonstrating request/response and fault patterns",
+  "namespace": "http://www.w3.org/2003/05/soap-envelope",
+  "examples": [
+    {
+      "name": "SOAP Request",
+      "description": "A SOAP 1.2 request message for a GetStockPrice operation",
+      "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soap:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope\"\n               xmlns:stock=\"https://example.com/stockquote\">\n  <soap:Header>\n    <stock:TransactionId soap:mustUnderstand=\"true\">TX-20260502-001</stock:TransactionId>\n  </soap:Header>\n  <soap:Body>\n    <stock:GetStockPrice>\n      <stock:StockName>IBM</stock:StockName>\n    </stock:GetStockPrice>\n  </soap:Body>\n</soap:Envelope>",
+      "json_representation": {
+        "Envelope": {
+          "namespace": "http://www.w3.org/2003/05/soap-envelope",
+          "Header": {
+            "TransactionId": {
+              "mustUnderstand": true,
+              "value": "TX-20260502-001"
+            }
+          },
+          "Body": {
+            "GetStockPrice": {
+              "StockName": "IBM"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "SOAP Response",
+      "description": "A SOAP 1.2 response message returning stock price data",
+      "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soap:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope\"\n               xmlns:stock=\"https://example.com/stockquote\">\n  <soap:Body>\n    <stock:GetStockPriceResponse>\n      <stock:Price>185.42</stock:Price>\n      <stock:Currency>USD</stock:Currency>\n      <stock:Timestamp>2026-05-02T14:30:00Z</stock:Timestamp>\n    </stock:GetStockPriceResponse>\n  </soap:Body>\n</soap:Envelope>",
+      "json_representation": {
+        "Envelope": {
+          "namespace": "http://www.w3.org/2003/05/soap-envelope",
+          "Body": {
+            "GetStockPriceResponse": {
+              "Price": 185.42,
+              "Currency": "USD",
+              "Timestamp": "2026-05-02T14:30:00Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "SOAP Fault",
+      "description": "A SOAP 1.2 Fault message indicating the sender made an invalid request",
+      "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soap:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap:Body>\n    <soap:Fault>\n      <soap:Code>\n        <soap:Value>soap:Sender</soap:Value>\n        <soap:Subcode>\n          <soap:Value>stock:InvalidStockSymbol</soap:Value>\n        </soap:Subcode>\n      </soap:Code>\n      <soap:Reason>\n        <soap:Text xml:lang=\"en\">The stock symbol 'INVALID' is not recognized.</soap:Text>\n      </soap:Reason>\n      <soap:Detail>\n        <stock:StockSymbol>INVALID</stock:StockSymbol>\n      </soap:Detail>\n    </soap:Fault>\n  </soap:Body>\n</soap:Envelope>",
+      "json_representation": {
+        "Envelope": {
+          "namespace": "http://www.w3.org/2003/05/soap-envelope",
+          "Body": {
+            "Fault": {
+              "Code": {
+                "Value": "Sender",
+                "Subcode": {
+                  "Value": "InvalidStockSymbol"
+                }
+              },
+              "Reason": {
+                "Text": {
+                  "lang": "en",
+                  "value": "The stock symbol 'INVALID' is not recognized."
+                }
+              },
+              "Detail": {
+                "StockSymbol": "INVALID"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

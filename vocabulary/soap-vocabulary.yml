@@ -1,0 +1,114 @@
+title: SOAP Vocabulary
+description: >-
+  Normative vocabulary for the SOAP 1.2 (W3C) messaging protocol, including core message structure terms, processing model concepts, fault codes, and binding framework terminology as defined in the W3C SOAP 1.2 specification.
+created: '2026-05-02'
+modified: '2026-05-02'
+tags:
+  - SOAP
+  - Messaging Protocol
+  - W3C Standard
+  - Web Services
+
+normative_terms:
+  - term: SOAP Envelope
+    must: true
+    definition: >-
+      The root XML element of every SOAP message, identified by the namespace http://www.w3.org/2003/05/soap-envelope. The Envelope contains an optional Header element followed by a required Body element. All SOAP messages MUST contain an Envelope.
+    reference: "SOAP 1.2 Part 1, Section 5"
+    tags:
+      - Message Structure
+
+  - term: SOAP Header
+    must: false
+    definition: >-
+      An optional child element of the SOAP Envelope. The Header contains zero or more header blocks (child elements) that provide metadata and processing directives for specific SOAP nodes along the message path. If present, MUST be the first child of the Envelope.
+    reference: "SOAP 1.2 Part 1, Section 5.2"
+    tags:
+      - Message Structure
+
+  - term: SOAP Body
+    must: true
+    definition: >-
+      A required child element of the SOAP Envelope following the Header (if present). The Body contains the message payload for the ultimate SOAP receiver — the actual request, response, or Fault information.
+    reference: "SOAP 1.2 Part 1, Section 5.3"
+    tags:
+      - Message Structure
+
+  - term: SOAP Fault
+    must: false
+    definition: >-
+      A child element of the SOAP Body that indicates an error occurred during message processing. A Fault element contains Code (required), Reason (required), Node (optional), Role (optional), and Detail (optional) child elements.
+    reference: "SOAP 1.2 Part 1, Section 5.4"
+    tags:
+      - Error Handling
+
+  - term: mustUnderstand
+    must: true
+    definition: >-
+      An attribute that MUST be applied to a header block to indicate that the targeted SOAP node MUST process the block or generate a MustUnderstand fault. A value of "true" or "1" makes the header block mandatory for its targeted role.
+    reference: "SOAP 1.2 Part 1, Section 5.2.3"
+    tags:
+      - Header Attributes
+
+  - term: role
+    must: false
+    definition: >-
+      An attribute on a SOAP header block identifying the URI of the SOAP node role targeted by that block. Nodes process only those header blocks targeting roles they assume. Standard roles include next and ultimateReceiver.
+    reference: "SOAP 1.2 Part 1, Section 5.2.2"
+    tags:
+      - Header Attributes
+      - Processing Model
+
+  - term: relay
+    must: false
+    definition: >-
+      A boolean attribute on a SOAP header block that, if "true", indicates the block SHOULD be relayed by an intermediary if not processed. If false (default), unprocessed blocks are not forwarded.
+    reference: "SOAP 1.2 Part 1, Section 5.2.4"
+    tags:
+      - Header Attributes
+      - Intermediaries
+
+  - term: encodingStyle
+    must: false
+    definition: >-
+      An attribute containing a URI identifying the serialization rules used to encode SOAP message parts. May appear on any element. If absent, no specific encoding style is assumed.
+    reference: "SOAP 1.2 Part 1, Section 5.1.1"
+    tags:
+      - Message Attributes
+
+terms:
+  - term: SOAP Node
+    definition: >-
+      Any software program that processes a SOAP message. SOAP defines four built-in roles: next (any SOAP node), none (no processing), ultimateReceiver (the final destination), and application (application-layer processing). Nodes may be initial senders, intermediaries, or ultimate receivers.
+    tags:
+      - Processing Model
+
+  - term: SOAP Intermediary
+    definition: >-
+      A SOAP node that receives messages and forwards them toward the ultimate receiver. Intermediaries may process header blocks targeting them and remove those blocks before forwarding. Common intermediaries include security gateways and message routers.
+    tags:
+      - Processing Model
+      - Architecture
+
+  - term: SOAP Binding
+    definition: >-
+      Defines how SOAP messages are mapped to a specific transport protocol. SOAP 1.2 defines an HTTP binding in Part 2 (Adjuncts). Bindings specify how the SOAP Envelope is serialized and transmitted on the wire.
+    reference: "SOAP 1.2 Part 2 (Adjuncts)"
+    tags:
+      - Transport
+
+fault_codes:
+  - code: VersionMismatch
+    description: "The SOAP Envelope namespace was not recognized — the sender used an incorrect or unknown SOAP version."
+
+  - code: MustUnderstand
+    description: "A header block targeted at this node with mustUnderstand='true' was not understood or processed."
+
+  - code: DataEncodingUnknown
+    description: "The SOAP node did not recognize an encoding style specified in the encodingStyle attribute."
+
+  - code: Sender
+    description: "The fault was caused by the sender — the message was malformed or contained incorrect or inappropriate information."
+
+  - code: Receiver
+    description: "The fault was caused by the receiver — the message was well-formed but the receiver could not process it due to a server-side problem."
