@@ -31,19 +31,19 @@ apis:
         url: https://www.w3.org/TR/soap12-part2/
       - type: Adjuncts
         url: https://www.w3.org/TR/soap12-part2/
-      - type: JSON Schema
+      - type: JSONSchema
         url: json-schema/soap-envelope.json
-      - type: JSON Schema
+      - type: JSONSchema
         url: json-schema/soap-header.json
-      - type: JSON Schema
+      - type: JSONSchema
         url: json-schema/soap-header-block.json
-      - type: JSON Schema
+      - type: JSONSchema
         url: json-schema/soap-body.json
-      - type: JSON Schema
+      - type: JSONSchema
         url: json-schema/soap-fault.json
-      - type: JSON-LD Context
+      - type: JSONLDContext
         url: json-ld/soap-context.jsonld
-      - type: JSON Structure
+      - type: JSONStructure
         url: json-structure/soap-envelope-structure.json
       - type: Vocabulary
         url: vocabulary/soap-vocabulary.yml
@@ -63,15 +63,15 @@ common:
     url: https://www.w3.org/2000/xp/Group/
   - type: Wikipedia
     url: https://en.wikipedia.org/wiki/SOAP
-  - type: JSON Schema
+  - type: JSONSchema
     url: json-schema/soap-envelope.json
-  - type: JSON Schema
+  - type: JSONSchema
     url: json-schema/soap-header.json
-  - type: JSON Schema
+  - type: JSONSchema
     url: json-schema/soap-body.json
-  - type: JSON Schema
+  - type: JSONSchema
     url: json-schema/soap-fault.json
-  - type: JSON-LD Context
+  - type: JSONLDContext
     url: json-ld/soap-context.jsonld
   - type: Vocabulary
     url: vocabulary/soap-vocabulary.yml
