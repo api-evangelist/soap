@@ -25,7 +25,7 @@ tags:
   - WS-Star
 created: '2025'
 modified: '2026-05-02'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
   - aid: soap:soap-protocol
     name: SOAP 1.2 Protocol
