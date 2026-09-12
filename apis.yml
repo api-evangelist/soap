@@ -75,6 +75,8 @@ apis:
         url: examples/soap-envelope-example.json
 
 common:
+  - type: Website
+    url: https://www.w3.org/
   - type: DomainSecurity
     url: security/soap-domain-security.yml
   - type: W3C SOAP 1.2 Specification
