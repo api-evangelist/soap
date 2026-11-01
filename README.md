@@ -1,4 +1,4 @@
-# SOAP (Simple Object Access Protocol)
+# SOAP
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,48 +64,143 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-SOAP (Simple Object Access Protocol) is an XML-based messaging protocol for exchanging structured information in web services, standardized by W3C as SOAP 1.2 (Second Edition, 2007). It provides a platform-independent, language-neutral framework for web service communication with built-in standards for security (WS-Security), reliable messaging, and transactions.
+SOAP (Simple Object Access Protocol) is an XML-based messaging protocol for exchanging structured information in web services, standardized by W3C as SOAP 1.2 (2003). It provides a platform-independent, language-neutral framework for web service communication with built-in standards for security (WS-Security), reliable messaging (WS-ReliableMessaging), and transactions (WS-Transaction). SOAP messages consist of an Envelope containing an optional Header and a required Body.
 
-## Specification
+**Areas:** SOAP · Messaging Protocol · Web Services · XML · W3C Standard · Enterprise Integration · WS-Star
 
-- **SOAP 1.2 Part 1 (Messaging Framework):** https://www.w3.org/TR/soap12-part1/
-- **SOAP 1.2 Part 2 (Adjuncts/HTTP Binding):** https://www.w3.org/TR/soap12-part2/
-- **SOAP 1.1 Note (2000):** https://www.w3.org/TR/2000/NOTE-SOAP-20000508/
-- **W3C XML Protocol Working Group:** https://www.w3.org/2000/xp/Group/
+## SOAP on APIs.io
 
-## Message Structure
+Everything profiled for SOAP is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/soap/](https://apis.io/providers/soap/)** — or go straight to one of the APIs or properties below.
 
-A SOAP message consists of:
-- **Envelope** — root element wrapping the entire message
-- **Header** (optional) — metadata and processing directives for SOAP nodes
-- **Body** (required) — the main payload for the ultimate receiver
-- **Fault** — error reporting structure within the Body
+### APIs (1)
 
-## Fault Codes
+- [SOAP 1.2 Protocol](https://apis.io/apis/soap/soap-protocol/) — SOAP Version 1.2 (W3C Recommendation, 2003/2007 Second Edition) is a lightweight protocol for exchanging structured information in a decentralized,…
 
-| Code | Description |
-|------|-------------|
-| VersionMismatch | Unknown SOAP envelope namespace |
-| MustUnderstand | Required header block not processed |
-| DataEncodingUnknown | Unknown encoding style |
-| Sender | Message error caused by the sender |
-| Receiver | Processing failure at the receiver |
+### Published properties
 
-## Artifacts
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-| Type | File |
-|------|------|
-| JSON Schema (Envelope) | [json-schema/soap-envelope.json](json-schema/soap-envelope.json) |
-| JSON Schema (Header) | [json-schema/soap-header.json](json-schema/soap-header.json) |
-| JSON Schema (Header Block) | [json-schema/soap-header-block.json](json-schema/soap-header-block.json) |
-| JSON Schema (Body) | [json-schema/soap-body.json](json-schema/soap-body.json) |
-| JSON Schema (Fault) | [json-schema/soap-fault.json](json-schema/soap-fault.json) |
-| JSON-LD Context | [json-ld/soap-context.jsonld](json-ld/soap-context.jsonld) |
-| JSON Structure | [json-structure/soap-envelope-structure.json](json-structure/soap-envelope-structure.json) |
-| Vocabulary | [vocabulary/soap-vocabulary.yml](vocabulary/soap-vocabulary.yml) |
-| Examples | [examples/soap-envelope-example.json](examples/soap-envelope-example.json) |
+#### JSON Schema (5)
 
-## Timestamps
+The data models the API reads and writes.
 
-- **Created:** 2025
-- **Modified:** 2026-05-02
+- [SOAP Body](https://apis.io/schemas/soap/soap-body/)
+- [SOAP Envelope](https://apis.io/schemas/soap/soap-envelope/)
+- [SOAP Fault](https://apis.io/schemas/soap/soap-fault/)
+- [SOAP Header](https://apis.io/schemas/soap/soap-header/)
+- [SOAP Header Block](https://apis.io/schemas/soap/soap-header-block/)
+
+#### JSON Structure (1)
+
+Data models expressed in JSON Structure.
+
+- [Soap Envelope Structure](https://apis.io/json-structure/soap/soap-envelope-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Soap Context](https://apis.io/jsonld/soap/soap-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [SOAP Vocabulary](https://apis.io/vocabularies/soap/soap-vocabulary/)
+
+#### Examples (1)
+
+Example requests and responses.
+
+- [Soap Envelope Example](https://apis.io/examples/soap/soap-envelope-example/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [SOAP — jsonschema rules](https://apis.io/rules/soap/soap-jsonschema-spectral-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Soap Domain Security](https://apis.io/security/soap/soap-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Soap Plans Pricing](https://apis.io/plans/soap/soap-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Soap Rate Limits](https://apis.io/rate-limits/soap/soap-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Soap Finops](https://apis.io/finops/soap/soap-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.w3.org/)
+
+## API Evangelist rating
+
+**Kin Score 19.0** — emerging · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 58.9 |
+| Contract quality | 33.2 |
+| Contract governance | 23.5 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 0.0 |
+| Access clarity | 7.9 |
+
+**Agent readiness 1.9** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/soap/](https://apis.io/providers/soap/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for SOAP: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/soap/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
